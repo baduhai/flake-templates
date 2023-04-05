@@ -1,5 +1,5 @@
 {
-  description = "Flake template for a rust project";
+  description = "Flake template for a nix shell with packages";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,6 +7,7 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem
-    (system: { devShells.default = mkShell { packages = [ hello ]; }; });
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = import nixpkgs { inherit system; };
+      in with pkgs; { devShells.default = mkShell { packages = [ typst ]; }; });
 }
