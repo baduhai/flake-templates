@@ -1,5 +1,5 @@
 {
-  description = "Flake template for nix package";
+  description = "Template for a nix package";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -11,7 +11,9 @@
       let pkgs = import nixpkgs { inherit system; };
       in with pkgs; {
         devShells.default = mkShell { packages = [ ]; };
-        packages.default = self.packages."${system}".package;
-        packages."package" = pkgs.callPackage ./package.nix { };
+        packages = {
+          default = self.packages."${system}".package;
+          "package" = pkgs.callPackage ./package.nix { };
+        };
       });
 }

@@ -1,6 +1,4 @@
-{ lib
-, stdenv
-}:
+{ lib, stdenv }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "";
