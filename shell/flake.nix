@@ -1,5 +1,5 @@
 {
-  description = "Flake template for a nix shell with packages";
+  description = "Template for a devShell";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

@@ -3,9 +3,9 @@
 
   outputs = { self }: {
     templates = {
-      hello = {
-        path = ./hello;
-        description = "Template including hello in shell packages";
+      shell = {
+        path = ./shell;
+        description = "Template for a devShell";
       };
       package = {
         path = ./package;
