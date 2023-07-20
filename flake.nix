@@ -8,7 +8,7 @@
         description = "Template for a nix package";
       };
       python = {
-        path = ./python
+        path = ./python;
         description = "Template to python project";
       };
       rust = {
